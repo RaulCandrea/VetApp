@@ -1,0 +1,77 @@
+.dog-name{
+  margin-left:10px;
+  color:black ;
+  font-weight: bold;
+}
+.doctor-name{
+  margin-left:10px;
+  margin-top:5px;
+  color:black ;
+  font-weight: bold;
+}
+.appointment-card {
+  position: relative; /* Set container position to relative */
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+  width: 300px;
+  border-radius: 10px;
+}
+
+.status-indicator {
+  align-self: center;
+  width: 10%;
+  height: 80px;
+  border-radius: 10px 0 0 10px;
+}
+
+.created {
+  background-color: deeppink;
+}
+
+.in-progress {
+  background-color: grey;
+}
+
+.done {
+  background-color: green;
+}
+
+.details {
+  flex-grow: 1;
+}
+
+.time {
+  display: flex;
+}
+
+.details-button {
+  align-self: self-end;
+  margin-right: 10px;
+  width: 10%;
+  border-radius: 10px;
+}
+
+.id {
+  position: absolute;
+  top: 0;
+  margin-right: 10px;
+  right:10px;
+  transform: translateY(50%);
+  color:dodgerblue;
+}
+.status-indicator{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.status-icon{
+  font-size: 25px;
+
+}
+
+.time-container{
+  margin-top: 10px;
+  display: flex;
+}

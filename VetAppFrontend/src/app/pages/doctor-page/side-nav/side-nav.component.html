@@ -1,0 +1,26 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav" mode="side" opened="true">
+    <a class="side-nav-button" mat-button (click)="toggleIconColor('explore')" [ngClass]="{'unselected-icon': activeIcon !== 'explore','pink-icon': activeIcon === 'explore'}">
+      <mat-icon>explore</mat-icon>
+    </a>
+    <a class="side-nav-button" mat-button (click)="toggleIconColor('home')" [ngClass]="{'unselected-icon': activeIcon !== 'home','pink-icon': activeIcon === 'home'}">
+      <mat-icon>home</mat-icon>
+    </a>
+    <a class="side-nav-button" mat-button (click)="toggleIconColor('chat')" [ngClass]="{'unselected-icon': activeIcon !== 'chat','pink-icon': activeIcon === 'chat'}">
+      <mat-icon>chat</mat-icon>
+    </a>
+    <a class="side-nav-button" mat-button (click)="toggleIconColor('maps')" [ngClass]="{'unselected-icon': activeIcon !== 'maps','pink-icon': activeIcon === 'maps'}">
+      <mat-icon>maps</mat-icon>
+    </a>
+    <a class="side-nav-button" mat-button (click)="toggleIconColor('bar_chart')" [ngClass]="{'unselected-icon': activeIcon !== 'bar_chart','pink-icon': activeIcon === 'bar_chart'}">
+      <mat-icon>bar_chart</mat-icon>
+    </a>
+    <a class="side-nav-button" mat-button (click)="toggleIconColor('credit_card')" [ngClass]="{'unselected-icon': activeIcon !== 'credit_card','pink-icon': activeIcon === 'credit_card'}">
+      <mat-icon>credit_card</mat-icon>
+    </a>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-card-doctor></app-card-doctor>
+    <app-card-appointment></app-card-appointment>
+  </mat-sidenav-content>
+</mat-sidenav-container>

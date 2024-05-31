@@ -1,0 +1,25 @@
+<mat-card class="appointment-card">
+  <div class="status-indicator" color="primary" [ngClass]="{
+    'created': appointment.status === StatusEnum.created,
+    'in-progress': appointment.status === StatusEnum.progress,
+    'done': appointment.status === StatusEnum.done
+  }">
+    <mat-icon class = "status-icon">drag_indicator</mat-icon>
+  </div>
+
+  <div class="details">
+    <div class="dog-name">{{ appointment.animal.name }}</div>
+    <div class="doctor-name">{{ appointment.doctorName }}</div>
+    <div class = "time-container">
+    <div class="time">
+      <mat-icon>timer</mat-icon>
+      <span>{{ appointment.date | date: 'shortTime' }}</span>
+    </div>
+    <div class="date">{{ appointment.date | date: 'longDate' }}</div>
+    </div>
+    <div class="id">{{ appointment.id }}</div>
+  </div>
+
+  <!-- Button for details -->
+  <button mat-button class="details-button" color="primary">Detali</button>
+</mat-card>
