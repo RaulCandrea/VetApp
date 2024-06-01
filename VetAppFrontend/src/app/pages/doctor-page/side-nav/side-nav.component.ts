@@ -1,20 +1,27 @@
-import { Component } from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
 import {MatDrawer, MatDrawerContainer, MatSidenavContainer} from "@angular/material/sidenav";
 import {MatListItem, MatNavList} from "@angular/material/list";
 import {MatIconModule} from '@angular/material/icon';
 import {MatAnchor, MatButton} from "@angular/material/button";
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {RouterLink} from "@angular/router";
+import {RouterLink, RouterLinkActive} from "@angular/router";
 import {NgClass} from "@angular/common";
 import {CardDoctorComponent} from "../card-doctor/card-doctor.component";
 import {CardAppointmentComponent} from "../card-appointment/card-appointment.component";
 import {CardProfileComponent} from "../card-profile/card-profile.component";
+import {CardEventsComponent} from "../card-events/card-events.component";
+import {MatTabLink} from "@angular/material/tabs";
+import {MatTabsModule} from '@angular/material/tabs';
+import {MyAppointmentsComponent} from "../sub-pages/my-appointments/my-appointments.component";
+
+
 
 
 @Component({
   selector: 'app-side-nav',
   standalone: true,
   imports: [
+    MatTabsModule,
     MatSidenavContainer,
     MatDrawerContainer,
     MatDrawer,
@@ -28,10 +35,15 @@ import {CardProfileComponent} from "../card-profile/card-profile.component";
     NgClass,
     CardDoctorComponent,
     CardAppointmentComponent,
-    CardProfileComponent
+    CardProfileComponent,
+    CardEventsComponent,
+    MatTabLink,
+    RouterLinkActive,
+    MyAppointmentsComponent
   ],
   templateUrl: './side-nav.component.html',
-  styleUrl: './side-nav.component.css'
+  styleUrl: './side-nav.component.css',
+
 })
 export class SideNavComponent {
 

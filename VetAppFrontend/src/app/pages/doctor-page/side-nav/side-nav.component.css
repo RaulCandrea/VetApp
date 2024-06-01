@@ -1,6 +1,8 @@
 .sidenav-container {
   height: 100%;
+  background: whitesmoke;
 }
+
 
 .sidenav {
   width: 5%;
@@ -10,8 +12,8 @@
   justify-content: center;
   border-radius: 0;
   border: 2px solid lightgray;
-
 }
+
 
 .side-nav-button {
   display: flex;
@@ -36,6 +38,40 @@
 
 .mat-sidenav-content {
   width: 95%;
+  height: 100%;
   overflow: hidden;
-  background-color: white;
+  display: block;
+  color: black;
+  font-weight: bold;
 }
+
+.menu-bar{
+  width: 72%;
+  height: 100%;
+  font-weight:normal !important;
+}
+
+.tabs{
+  height: 100%;
+}
+.cards {
+  display: block;
+  align-items: flex-end;
+  margin: 10px;
+  padding: 10px;
+  float : right;
+}
+
+
+.sidenav-container {
+  height: 100vh;
+  display: flex;
+}
+
+
+
+.menu-bar {
+  margin-bottom: 20px;
+}
+
+

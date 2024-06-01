@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {MatButton} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
 import {
     MatCard,
     MatCardActions,
@@ -14,7 +15,8 @@ import {NgOptimizedImage} from "@angular/common";
   selector: 'app-card-profile',
   standalone: true,
     imports: [
-        MatButton,
+      MatIconModule,
+      MatButton,
         MatCard,
         MatCardActions,
         MatCardContent,

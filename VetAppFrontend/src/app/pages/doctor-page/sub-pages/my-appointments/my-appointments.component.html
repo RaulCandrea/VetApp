@@ -1,0 +1,48 @@
+<body>
+<div cdkDropListGroup class ="drop-group">
+  <div class="example-container">
+    <h2 color ="grey">To do</h2>
+  <div class ="container">
+    <div
+      cdkDropList
+      [cdkDropListData]="todo"
+      class="example-list"
+      (cdkDropListDropped)="drop($event,StatusEnum.created)">
+      @for (item of todo; track item) {
+        <div class="example-box" cdkDrag><app-card-appointment [appointment]="item"></app-card-appointment></div>
+      }
+    </div>
+
+  </div>
+  </div>
+
+  <div class="example-container">
+    <h2>In Progress</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="progress"
+      class="example-list"
+      (cdkDropListDropped)="drop($event,StatusEnum.progress)">
+      @for (item of progress; track item) {
+        <div class="example-box" cdkDrag><app-card-appointment [appointment]="item"></app-card-appointment></div>
+      }
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Done</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="done"
+      class="example-list"
+      (cdkDropListDropped)="drop($event,StatusEnum.done)">
+      @for (item of done; track item) {
+        <div class="example-box" cdkDrag><app-card-appointment [appointment]="item"></app-card-appointment></div>
+      }
+    </div>
+  </div>
+</div>
+
+</body>

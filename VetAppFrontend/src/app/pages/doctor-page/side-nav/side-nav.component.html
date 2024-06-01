@@ -21,7 +21,35 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <app-card-profile></app-card-profile>
-    <app-card-appointment></app-card-appointment>
-    <app-card-doctor></app-card-doctor>
+    <div class ="cards">
+
+      <app-card-doctor></app-card-doctor>
+      <app-card-doctor></app-card-doctor>
+      <h1>Event</h1>
+      <app-card-events></app-card-events>
+      <h1>Community</h1>
+      <app-card-events></app-card-events>
+
+    </div>
+    <mat-tab-group class="menu-bar">
+      <mat-tab class = "tabs" label="My Appointments">
+          <!-- Content for My Appointments -->
+          <app-my-appointments></app-my-appointments>
+      </mat-tab>
+      <mat-tab class = "tabs" label="All Appointments">
+        <ng-template matTabContent>
+          <!-- Content for All Appointments -->
+<!--          <app-all-appointments></app-all-appointments>-->
+        </ng-template>
+      </mat-tab>
+      <mat-tab class = "tabs" label="Add Appointment">
+        <ng-template matTabContent>
+          <!-- Content for Add Appointment -->
+<!--          <app-add-appointment></app-add-appointment>-->
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+
   </mat-sidenav-content>
+
 </mat-sidenav-container>

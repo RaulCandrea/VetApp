@@ -1,8 +1,10 @@
 
 .card-container {
   display: flex;
+  justify-content: center;
   border-radius: 10px;
-  height: 120px;
+  background: white;
+  height: 100px;
   width: 350px;
 }
 
@@ -11,8 +13,8 @@
 }
 
 .card-image {
-  height: 100px;
-  width: 100px;
+  height: 90px;
+  width: 90px;
   object-fit: cover;
   border-radius: 10px;
   margin:10px;
@@ -23,14 +25,27 @@
   flex-direction: column;
 }
 
-
-
-mat-card-title {
-  font-size:16px;
+.card-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 
+mat-card-title {
+  margin-top: 10px;
+  color:black;
+  font-size:12px;
+}
+
 mat-card-actions {
-  padding-bottom: 10px;
-  margin-bottom: 10px;
+  color:hotpink;
+}
+
+button{
+  height:30px;
+  background:hotpink;
+  border-radius: 10px;
+  margin-bottom:5px;
 }
