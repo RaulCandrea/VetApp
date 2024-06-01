@@ -8,6 +8,7 @@ import {RouterLink} from "@angular/router";
 import {NgClass} from "@angular/common";
 import {CardDoctorComponent} from "../card-doctor/card-doctor.component";
 import {CardAppointmentComponent} from "../card-appointment/card-appointment.component";
+import {CardProfileComponent} from "../card-profile/card-profile.component";
 
 
 @Component({
@@ -26,7 +27,8 @@ import {CardAppointmentComponent} from "../card-appointment/card-appointment.com
     RouterLink,
     NgClass,
     CardDoctorComponent,
-    CardAppointmentComponent
+    CardAppointmentComponent,
+    CardProfileComponent
   ],
   templateUrl: './side-nav.component.html',
   styleUrl: './side-nav.component.css'

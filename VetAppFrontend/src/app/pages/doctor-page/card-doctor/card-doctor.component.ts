@@ -9,6 +9,8 @@ import {
 } from "@angular/material/card";
 import {MatButton} from "@angular/material/button";
 import {NgOptimizedImage} from "@angular/common";
+import {MatIcon} from "@angular/material/icon";
+import {IDoctorModel} from "../../../models/IDoctorModel";
 
 @Component({
   selector: 'app-card-doctor',
@@ -22,11 +24,19 @@ import {NgOptimizedImage} from "@angular/common";
     MatCardImage,
     MatCardActions,
     MatButton,
-    NgOptimizedImage
+    NgOptimizedImage,
+    MatIcon
   ],
   templateUrl: './card-doctor.component.html',
   styleUrl: './card-doctor.component.css'
 })
 export class CardDoctorComponent {
+   doctor: IDoctorModel = {
+    id: 'd3',
+    name: 'Dr. Michael Brown',
+    rate: 4.3,
+    speciality: 'Pediatrics',
+    tasksToday: 10,
+  };
 
 }
