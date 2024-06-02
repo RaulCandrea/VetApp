@@ -32,9 +32,10 @@
 
     </div>
     <mat-tab-group class="menu-bar">
-      <mat-tab class = "tabs" label="My Appointments">
+      <mat-tab class = "tabs" label="My Appointments" [routerLink]="['doctor/my-appointments']">
           <!-- Content for My Appointments -->
-          <app-my-appointments></app-my-appointments>
+<!--          <app-my-appointments></app-my-appointments>-->
+        <router-outlet></router-outlet>
       </mat-tab>
       <mat-tab class = "tabs" label="All Appointments">
         <ng-template matTabContent>

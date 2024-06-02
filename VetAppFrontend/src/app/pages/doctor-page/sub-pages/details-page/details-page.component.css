@@ -1,0 +1,49 @@
+.container{
+  background:white;
+}
+.container-details{
+  display: flex;
+}
+
+.container-animal{
+  margin:20px;
+  display: block;
+}
+.container-appointment{
+  display: block;
+  margin:20px;
+}
+
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-save{
+  background-color: hotpink;
+}
+
+/* Style for the entire card */
+mat-card {
+  margin: 20px;
+}
+
+/* Style for each list item */
+mat-list-item {
+  border-bottom: 1px solid #e0e0e0; /* Add a border between list items */
+}
+
+/* Style for appointment ID */
+h3 {
+  margin: 0; /* Remove default margin */
+  font-size: 16px; /* Increase font size */
+  color: #333; /* Darken text color */
+}
+
+/* Style for appointment details */
+p {
+  margin: 2px; /* Remove default margin */
+  font-size: 14px; /* Font size */
+  color: #666; /* Slightly darken text color */
+}

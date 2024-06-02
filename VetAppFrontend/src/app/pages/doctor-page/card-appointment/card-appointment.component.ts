@@ -5,6 +5,7 @@ import {MatIcon} from "@angular/material/icon";
 import {MatButton} from "@angular/material/button";
 import {MatCard} from "@angular/material/card";
 import {IAnimalModel} from "../../../models/IAnimalModel";
+import {Router, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-card-appointment',
@@ -14,7 +15,8 @@ import {IAnimalModel} from "../../../models/IAnimalModel";
     MatIcon,
     DatePipe,
     MatButton,
-    MatCard
+    MatCard,
+    RouterLink
   ],
   templateUrl: './card-appointment.component.html',
   styleUrl: './card-appointment.component.css'
@@ -22,4 +24,12 @@ import {IAnimalModel} from "../../../models/IAnimalModel";
 export class CardAppointmentComponent {
   @Input() appointment !: IAppointmentModel;
   protected readonly StatusEnum = StatusEnum;
+
+  constructor(private router : Router) {
+  }
+
+
+  public redirectTo(id: string){
+    this.router.navigate( ['/' + id]);
+  }
 }

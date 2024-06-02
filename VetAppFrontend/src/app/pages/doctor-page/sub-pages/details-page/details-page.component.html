@@ -1,0 +1,82 @@
+<form *ngIf="appointmentForm" [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+  <mat-card class = "container">
+    <mat-card-header>
+      <mat-card-title>Edit Appointment</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class = "container-details">
+      <div class = "container-animal">
+        <h3>Animal Information</h3>
+        <form *ngIf="animalForm" [formGroup]="animalForm">
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="name">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Species</mat-label>
+              <input matInput formControlName="species">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="fill">
+              <mat-label>Details</mat-label>
+              <input matInput formControlName="details">
+            </mat-form-field>
+          </div>
+        </form>
+      </div>
+      <div class = "container-appointment">
+        <h3>Appointment Information</h3>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Doctor Name</mat-label>
+            <input matInput formControlName="doctorName">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill" class="custom-form-field">
+            <mat-label>Diagnosis</mat-label>
+            <input matInput formControlName="diagnosis">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status">
+              <mat-option *ngFor="let status of statusEnum| keyvalue" [value]="status.value">
+                {{status.key}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Previous Appointments</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item *ngFor="let appointment of appointments">
+              <h3 matLine>ID: {{ appointment.doctorName }}</h3>
+              <p matLine>Status: {{ appointment.diagnosis }}</p>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button class = "button-save" mat-button type="submit" [disabled]="appointmentForm.invalid">Save</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

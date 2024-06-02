@@ -34,6 +34,9 @@
   font-size: 14px;
   overflow: hidden;
 }
+.example-box done{
+cursor: pointer;
+}
 
 .cdk-drag-preview {
   box-sizing: border-box;

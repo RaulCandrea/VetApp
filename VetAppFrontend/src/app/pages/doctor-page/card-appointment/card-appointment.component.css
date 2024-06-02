@@ -10,12 +10,13 @@
   font-weight: bold;
 }
 .appointment-card {
-  position: relative; /* Set container position to relative */
+  position: relative;
   display: flex;
   flex-direction: row;
   height: 80px;
   width: 300px;
   border-radius: 10px;
+  background: white;
 }
 
 .status-indicator {
@@ -78,4 +79,5 @@
 
 .cards{
   display: flex;
+
 }

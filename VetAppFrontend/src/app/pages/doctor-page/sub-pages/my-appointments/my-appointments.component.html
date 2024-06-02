@@ -39,7 +39,7 @@
       class="example-list"
       (cdkDropListDropped)="drop($event,StatusEnum.done)">
       @for (item of done; track item) {
-        <div class="example-box" cdkDrag><app-card-appointment [appointment]="item"></app-card-appointment></div>
+        <div class="example-box done" cdkDrag  [cdkDragDisabled]="true"><app-card-appointment [appointment]="item"></app-card-appointment></div>
       }
     </div>
   </div>

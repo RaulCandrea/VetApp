@@ -13,4 +13,14 @@ export class AppointmentService {
   public getAppointments() :IAppointmentModel[]{
     return mockAppointments;
   }
+
+  public getAppointmentById(appointmentId:string){
+    let appointmentTemp = null;
+    this.getAppointments().forEach(appointment => {
+      if(appointment.id == appointmentId){
+        appointmentTemp = appointment;
+      }
+    })
+    return appointmentTemp;
+  }
 }

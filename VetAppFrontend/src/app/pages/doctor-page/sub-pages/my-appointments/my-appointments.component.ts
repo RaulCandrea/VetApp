@@ -11,6 +11,7 @@ import {NgForOf} from "@angular/common";
 import {CardAppointmentComponent} from "../../card-appointment/card-appointment.component";
 import {AppointmentService} from "../../../../services/appointment.services";
 import {IAppointmentModel, StatusEnum} from "../../../../models/IAppointmentModel";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -34,14 +35,18 @@ export class MyAppointmentsComponent implements OnInit {
 
   done: IAppointmentModel[] = [];
 
-  constructor(private appointmentService: AppointmentService) {
+  constructor(private appointmentService: AppointmentService , private router : Router) {
   }
 
   ngOnInit() {
     this.sortAppointmentsIntoArrays();
-    console.log(this.appointmentService.getAppointments());
-    console.log(this.todo);
+
   }
+
+  public redirectTo(id: string){
+    this.router.navigate( ['my-appointments/details/:' + id]);
+  }
+
   drop(event: CdkDragDrop<IAppointmentModel[]>, targetStatus: StatusEnum) {
     if (event.previousContainer.id === 'cdk-drop-list-0' && targetStatus === StatusEnum.done) {
       alert('You must move the item to "In Progress" before marking it as "Done".');
@@ -67,11 +72,10 @@ export class MyAppointmentsComponent implements OnInit {
   sortAppointmentsIntoArrays(){
     let tempArray = this.appointmentService.getAppointments();
     this.todo = tempArray.filter(appointment => appointment.status === StatusEnum.created);
-    this.progress = tempArray.filter(appointment => appointment.status === StatusEnum.created);
+    this.progress = tempArray.filter(appointment => appointment.status === StatusEnum.progress);
     this.done = tempArray.filter(appointment => appointment.status === StatusEnum.done);
     console.log(this.done);
   }
-
 
   protected readonly StatusEnum = StatusEnum;
 }

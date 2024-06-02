@@ -38,6 +38,7 @@ const mockAppointments: IAppointmentModel[] = [
     diagnosis: "Skin allergy",
     status: StatusEnum.done
   }
+
 ];
 
 export default mockAppointments;

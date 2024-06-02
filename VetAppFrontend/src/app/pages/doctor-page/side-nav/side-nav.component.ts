@@ -4,7 +4,7 @@ import {MatListItem, MatNavList} from "@angular/material/list";
 import {MatIconModule} from '@angular/material/icon';
 import {MatAnchor, MatButton} from "@angular/material/button";
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {RouterLink, RouterLinkActive} from "@angular/router";
+import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 import {NgClass} from "@angular/common";
 import {CardDoctorComponent} from "../card-doctor/card-doctor.component";
 import {CardAppointmentComponent} from "../card-appointment/card-appointment.component";
@@ -39,7 +39,8 @@ import {MyAppointmentsComponent} from "../sub-pages/my-appointments/my-appointme
     CardEventsComponent,
     MatTabLink,
     RouterLinkActive,
-    MyAppointmentsComponent
+    MyAppointmentsComponent,
+    RouterOutlet
   ],
   templateUrl: './side-nav.component.html',
   styleUrl: './side-nav.component.css',
