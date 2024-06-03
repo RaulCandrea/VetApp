@@ -5,11 +5,12 @@ import {CardAppointmentComponent} from "./pages/doctor-page/card-appointment/car
 import {CardDoctorComponent} from "./pages/doctor-page/card-doctor/card-doctor.component";
 import {CardEventsComponent} from "./pages/doctor-page/card-events/card-events.component";
 import {MyAppointmentsComponent} from "./pages/doctor-page/sub-pages/my-appointments/my-appointments.component";
+import {AddAppointmentComponent} from "./pages/doctor-page/sub-pages/add-appointment/add-appointment.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, DoctorPageComponent, CardAppointmentComponent, CardDoctorComponent, CardEventsComponent, MyAppointmentsComponent],
+  imports: [RouterOutlet, DoctorPageComponent, CardAppointmentComponent, CardDoctorComponent, CardEventsComponent, MyAppointmentsComponent, AddAppointmentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

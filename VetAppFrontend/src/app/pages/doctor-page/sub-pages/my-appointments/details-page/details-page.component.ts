@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {IAppointmentModel, StatusEnum} from "../../../../models/IAppointmentModel";
-import {AppointmentService} from "../../../../services/appointment.services";
+import {IAppointmentModel, StatusEnum} from "../../../../../models/IAppointmentModel";
+import {AppointmentService} from "../../../../../services/appointment.services";
 import {ActivatedRoute} from "@angular/router";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
@@ -17,8 +17,8 @@ import {DatePipe, KeyValuePipe, NgForOf, NgIf} from "@angular/common";
 import {MatButton} from "@angular/material/button";
 import {MatLine, MatNativeDateModule} from "@angular/material/core";
 import {MatList, MatListItem} from "@angular/material/list";
-import mockAppointments from "../../../../mock-data/appointments.data";
-import appointments from "../../../../mock-data/appointments.data";
+import mockAppointments from "../../../../../mock-data/appointments.data";
+import appointments from "../../../../../mock-data/appointments.data";
 
 
 @Component({

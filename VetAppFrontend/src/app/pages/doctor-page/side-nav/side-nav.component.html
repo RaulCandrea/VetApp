@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" xmlns="http://www.w3.org/1999/html">
   <mat-sidenav class="sidenav" mode="side" opened="true">
     <a class="side-nav-button" mat-button (click)="toggleIconColor('explore')" [ngClass]="{'unselected-icon': activeIcon !== 'explore','pink-icon': activeIcon === 'explore'}">
       <mat-icon>explore</mat-icon>
@@ -31,22 +31,17 @@
       <app-card-events></app-card-events>
 
     </div>
-    <mat-tab-group class="menu-bar">
-      <mat-tab class = "tabs" label="My Appointments" [routerLink]="['doctor/my-appointments']">
-          <!-- Content for My Appointments -->
-<!--          <app-my-appointments></app-my-appointments>-->
+    <mat-tab-group class="menu-bar" >
+      <mat-tab class = "tabs" label="My Appointments" data-route="doctor/all-appointments">
         <router-outlet></router-outlet>
       </mat-tab>
-      <mat-tab class = "tabs" label="All Appointments">
-        <ng-template matTabContent>
-          <!-- Content for All Appointments -->
-<!--          <app-all-appointments></app-all-appointments>-->
-        </ng-template>
+      <mat-tab class = "tabs" label="All Appointments" routerLink="doctor/all-appointments">
+        <app-all-appointments></app-all-appointments>
       </mat-tab>
       <mat-tab class = "tabs" label="Add Appointment">
         <ng-template matTabContent>
           <!-- Content for Add Appointment -->
-<!--          <app-add-appointment></app-add-appointment>-->
+          <app-add-appointment></app-add-appointment>
         </ng-template>
       </mat-tab>
     </mat-tab-group>
