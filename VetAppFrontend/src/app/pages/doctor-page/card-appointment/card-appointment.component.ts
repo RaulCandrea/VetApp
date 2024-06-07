@@ -30,6 +30,7 @@ export class CardAppointmentComponent {
 
 
   public redirectTo(id: string){
-    this.router.navigate( ['/' + id]);
+    console.log(id);
+    this.router.navigate( ['/details/:' + id]);
   }
 }

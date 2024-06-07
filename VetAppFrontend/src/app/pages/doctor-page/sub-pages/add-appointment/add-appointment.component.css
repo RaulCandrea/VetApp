@@ -1,0 +1,46 @@
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+
+label {
+  margin-top: 10px;
+}
+
+input, textarea, select {
+  margin-bottom: 10px;
+}
+
+button {
+  margin-top: 20px;
+}
+
+.time-picker{
+  background-color: black;
+}
+mat-form-field {
+  color:white;
+  padding:0;
+}
+
+mat-label{
+  color: gray;
+}
+
+ngx-mat-timepicker {
+  background-color: gray !important;
+  color: black !important;
+}
+
+ ngx-mat-timepicker-button {
+  color: white !important;
+}
+
+ngx-mat-timepicker-hours,
+ngx-mat-timepicker-minutes,
+ngx-mat-timepicker-seconds {
+  background-color: black !important;
+  color: white !important;
+}

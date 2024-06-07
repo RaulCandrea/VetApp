@@ -41,7 +41,7 @@
   height: 100%;
   overflow: hidden;
   display: block;
-  color: black;
+  background-color: whitesmoke;
   font-weight: bold;
 }
 
@@ -53,15 +53,16 @@
 
 .tabs{
   height: 100%;
+  background-color: gray;
 }
 .cards {
   display: block;
+  color: black;
   align-items: flex-end;
   margin: 10px;
   padding: 10px;
   float : right;
 }
-
 
 .sidenav-container {
   height: 100vh;
@@ -75,3 +76,19 @@
 }
 
 
+/*greu rau*/
+
+.mat-mdc-tab {
+  -webkit-tap-highlight-color: black !important
+}
+
+.mat-mdc-tab-group{
+  --mat-tab-header-inactive-focus-label-text-color: black;
+  --mat-tab-header-inactive-hover-label-text-color: black;
+  --mat-tab-header-disabled-ripple-color: black;
+  --mat-tab-header-pagination-icon-color: black;
+  --mat-tab-header-inactive-label-text-color: gray;
+}
+.mat-mdc-tab .mdc-tab__text-label {
+  color: black;
+}

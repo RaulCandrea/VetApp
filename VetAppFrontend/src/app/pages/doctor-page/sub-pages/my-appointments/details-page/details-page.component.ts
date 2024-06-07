@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {IAppointmentModel, StatusEnum} from "../../../../../models/IAppointmentModel";
 import {AppointmentService} from "../../../../../services/appointment.services";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
 import {MatFormField, MatLabel} from "@angular/material/form-field";
@@ -49,22 +49,29 @@ import appointments from "../../../../../mock-data/appointments.data";
     MatList,
     MatListItem,
     MatLine,
-    DatePipe
+    DatePipe,
+    RouterLink
   ],
   templateUrl: './details-page.component.html',
   styleUrl: './details-page.component.css'
 })
 export class DetailsPageComponent implements OnInit {
-  appointmentId : string  = '' ;
-  appointment : IAppointmentModel | null = null;
+  appointmentId : string | null  = '' ;
+  appointment : IAppointmentModel | undefined = undefined;
 
   constructor(private fb: FormBuilder,private appointmentService: AppointmentService, private router : ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.appointmentId = this.router.snapshot.paramMap.get('id') as string;
-    this.appointment = this.appointmentService.getAppointmentById(this.appointmentId);
-    console.log(this.createForms());
+    console.log(this.appointmentId);
+
+    this.appointmentId = this.router.snapshot.paramMap.get('id') ;
+
+    if(this.appointmentId)
+    this.appointmentService.getAppointmentById(this.appointmentId).subscribe(data =>{
+      this.appointment = data;
+    })
+    this.createForms();
 
   }
 
@@ -106,10 +113,11 @@ export class DetailsPageComponent implements OnInit {
     if(this.appointmentForm)
     if (this.appointmentForm.valid) {
       const updatedAppointment = this.appointmentForm.getRawValue();
-      console.log('Updated Appointment:', updatedAppointment);
-      // Save the updated appointment
+      this.appointmentService.updateAppointment(updatedAppointment);
     }
   }
+
+
 
 
   protected readonly StatusEnum = StatusEnum;

@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {DoctorService} from "../../../../services/doctor.services";
 import {IDoctorModel} from "../../../../models/IDoctorModel";
-import {MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatFormField, MatHint, MatLabel, MatSuffix} from "@angular/material/form-field";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {NgForOf, NgIf} from "@angular/common";
 import {domesticAnimals} from "../../../../mock-data/animals.data";
@@ -12,12 +12,19 @@ import {map, Observable, startWith} from "rxjs";
 import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from "@angular/material/datepicker";
 import {MatButton} from "@angular/material/button";
 import {MatNativeDateModule} from "@angular/material/core";
+import {NgxMatTimepickerModule} from "ngx-mat-timepicker";
+import {MatIcon} from "@angular/material/icon";
+import { DateTime } from 'ts-luxon';
+import {AppointmentService} from "../../../../services/appointment.services";
+import {IAppointmentModel, StatusEnum} from "../../../../models/IAppointmentModel";
+
 
 
 @Component({
   selector: 'app-add-appointment',
   standalone: true,
   imports: [
+    NgxMatTimepickerModule,
     MatLabel,
     MatFormField,
     MatSelect,
@@ -34,6 +41,9 @@ import {MatNativeDateModule} from "@angular/material/core";
     MatDatepickerToggle,
     MatDatepicker,
     MatButton,
+    MatIcon,
+    MatHint,
+    MatSuffix,
 
   ],
   templateUrl: './add-appointment.component.html',
@@ -41,62 +51,73 @@ import {MatNativeDateModule} from "@angular/material/core";
 })
 export class AddAppointmentComponent implements OnInit{
 
-  appointmentForm: FormGroup | undefined;
+  @ViewChild('timepicker') timepicker: any;
+
+
+  appointmentForm !: FormGroup ;
   animals:string[] = [];
-  doctors: IDoctorModel[] =[];
-
-  constructor(
-    private fb: FormBuilder,
-    private doctorService: DoctorService
-  ) { }
-
-  animalControl = new FormControl();
-  filteredAnimals: Observable<string[]> | undefined;
-  selectedAnimal: string = '';
-  time: any;
+  doctors: string[] =[];
+  appointments$: Observable<IAppointmentModel[]>;
+  private idCounter: number = 3;
 
 
-
-  ngOnInit(): void {
-    this.createForm();
-    this.getAnimals();
-    this.getDoctors();
-    this.filteredAnimals = this.animalControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filterAnimals(value))
-    );
+  constructor(private fb: FormBuilder, private appointmentService: AppointmentService,private doctorService : DoctorService) {
+    this.appointments$ = this.appointmentService.appointments$;
   }
 
-  createForm(): void {
+  ngOnInit(): void {
+    this.getAnimals();
+    this.getDoctors();
     this.appointmentForm = this.fb.group({
-      animal: [null, Validators.required],
-      doctor: [null, Validators.required],
-      date: [null, Validators.required],
-      time:[null,Validators.required],
-      diagnosis: [null, Validators.required]
+      id: [this.generateId()],
+      animal: this.fb.group({
+        id: [this.generateId()],
+        name: ['', Validators.required],
+        species: ['', Validators.required],
+        details: ['']
+      }),
+      date: ['', Validators.required],
+      time: ['', Validators.required],
+      doctorName: ['', Validators.required],
+      diagnosis: [''],
+      status: [StatusEnum.created]
     });
   }
 
-  getAnimals(): void {
-  this.animals = domesticAnimals;
-  }
-
-  getDoctors(): void {
-    this.doctors = this.doctorService.getDoctors()
-}
-
   onSubmit(): void {
-    if (this.appointmentForm && this.appointmentForm.valid) {
-      const formData = this.appointmentForm.value;
+    console.log(this.appointmentForm.value);
+
+    if (this.appointmentForm.valid) {
+      console.log(this.appointmentForm.value);
+      const appointment: IAppointmentModel = this.appointmentForm.value;
+      this.appointmentService.createAppointment(appointment);
+      console.log('Appointment submitted successfully', appointment);
+      this.appointmentForm.reset(); // Reset the form after successful submission
     }
   }
 
-
-
-
-  private _filterAnimals(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.animals.filter(animal => animal.toLowerCase().includes(filterValue));
+  onClear(event: Event): void {
+    event.stopPropagation();
+    this.appointmentForm.get('time')?.reset();
   }
 
+  openFromIcon(timepicker: any): void {
+    timepicker.open();
+  }
+
+  generateId(): string {
+    return (this.idCounter + 1).toString();
+  }
+
+
+  getAnimals(): void {
+    this.animals = domesticAnimals;
+  }
+
+  getDoctors(): void {
+    let temp = this.doctorService.getDoctors()
+    temp.forEach(doct =>{
+      this.doctors.push(doct.name);
+    })
+  }
 }

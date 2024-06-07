@@ -19,18 +19,17 @@
       <mat-icon>credit_card</mat-icon>
     </a>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content >
     <app-card-profile></app-card-profile>
     <div class ="cards">
-
       <app-card-doctor></app-card-doctor>
       <app-card-doctor></app-card-doctor>
       <h1>Event</h1>
       <app-card-events></app-card-events>
       <h1>Community</h1>
       <app-card-events></app-card-events>
-
     </div>
+
     <mat-tab-group class="menu-bar" >
       <mat-tab class = "tabs" label="My Appointments" data-route="doctor/all-appointments">
         <router-outlet></router-outlet>
@@ -45,6 +44,7 @@
         </ng-template>
       </mat-tab>
     </mat-tab-group>
+
 
   </mat-sidenav-content>
 

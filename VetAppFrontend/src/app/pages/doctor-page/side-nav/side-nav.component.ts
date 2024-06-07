@@ -49,6 +49,7 @@ import {AddAppointmentComponent} from "../sub-pages/add-appointment/add-appointm
   templateUrl: './side-nav.component.html',
   styleUrl: './side-nav.component.css',
 
+
 })
 export class SideNavComponent {
 

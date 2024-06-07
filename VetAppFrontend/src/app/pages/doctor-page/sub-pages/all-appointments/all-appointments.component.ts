@@ -21,6 +21,8 @@ import {MatMiniFabButton} from "@angular/material/button";
 import {IAppointmentModel, StatusEnum} from "../../../../models/IAppointmentModel";
 import mockAppointments from "../../../../mock-data/appointments.data";
 import {Router} from "@angular/router";
+import {Observable} from "rxjs";
+import {AppointmentService} from "../../../../services/appointment.services";
 
 @Component({
   selector: 'app-all-appointments',
@@ -57,16 +59,20 @@ export class AllAppointmentsComponent implements OnInit{
     'diagnosis',
     'status',
   ];
-  dataSource = new MatTableDataSource<IAppointmentModel>(mockAppointments)
+  appointments$: Observable<IAppointmentModel[]>;
+  dataSource = new MatTableDataSource<IAppointmentModel>()
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private router : Router) {
+  constructor(private router : Router,private appointmentService : AppointmentService) {
+    this.appointments$ = this.appointmentService.appointments$;
   }
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource<IAppointmentModel>(mockAppointments)
+    this.appointments$.subscribe(data =>{
+      this.dataSource.data = data;
+    })
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.dataSource.filterPredicate = this.customFilterPredicate;
