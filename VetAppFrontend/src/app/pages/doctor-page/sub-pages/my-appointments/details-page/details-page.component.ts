@@ -67,19 +67,17 @@ export class DetailsPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.appointmentId);
-
     this.appointmentId = this.router.snapshot.paramMap.get('id') ;
-
     if(this.appointmentId)
     this.appointmentService.getAppointmentById(this.appointmentId).subscribe(data =>{
       this.appointment = data;
     })
-    this.createForms();
 
+    this.createForms();
   }
 
 
+  //aici am facut niste form-uri dupa care am facut o functie care le apeleaza pe ambele sa fie mai clean in ngInit
   createForms(): void {
     this.createAnimalForm();
     this.createAppointmentForm();

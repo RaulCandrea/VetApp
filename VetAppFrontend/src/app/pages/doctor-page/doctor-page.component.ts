@@ -19,7 +19,7 @@ import {MatListItem, MatNavList} from "@angular/material/list";
 import {NgClass} from "@angular/common";
 import {CardAppointmentComponent} from "./cards/card-appointment/card-appointment.component";
 import {MyAppointmentsComponent} from "./sub-pages/my-appointments/my-appointments.component";
-import {doctor1,doctor2,doctor3, DOCTORS} from "../../mock-data/doctor.data";
+import {doctor1, doctor2, doctor3, DOCTORS} from "../../mock-data/doctor.data";
 
 @Component({
   selector: 'app-doctor-page',
@@ -73,21 +73,18 @@ export class DoctorPageComponent {
 
   protected readonly DOCTORS = DOCTORS;
 
-  activeIcon: string  = 'explore';
+  activeIcon: string = 'explore';
 
-  constructor(private router : Router) {
+  constructor(private router: Router) {
   }
 
+  //logica de activare/dezactivare a icon-urilor
   toggleIconColor(icon: string): void {
     if (this.activeIcon === icon) {
-      this.activeIcon = ''; // If already active, deactivate
+      this.activeIcon = '';
     } else {
       this.activeIcon = icon;
     }
-  }
-
-  goToPage(page :any){
-    this.router.navigate(['doctor/all-appointments']);
   }
 
 

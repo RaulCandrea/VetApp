@@ -11,39 +11,42 @@ import {BehaviorSubject, filter, map, Observable} from "rxjs";
 export class AppointmentService {
 
 
-
-  private appointmentsSubject = new BehaviorSubject<IAppointmentModel[]>([]);
+   appointmentsSubject = new BehaviorSubject<IAppointmentModel[]>([]);
   appointments$ = this.appointmentsSubject.asObservable();
 
   constructor() {
     const mockAppointmentsTemp: IAppointmentModel[] = mockAppointments;
     this.appointmentsSubject.next(mockAppointmentsTemp);
   }
+  //aici am facut diferite metode pentru ce aveam nevoie
   getAppointmentById(id: string): Observable<IAppointmentModel | undefined> {
     return this.appointments$.pipe(
       map(appointments => appointments.find(appointment => appointment.id === id))
     );
   }
 
-  getAppointmentsByDoctorName(doctorName: string): Observable<IAppointmentModel[]> { return this.appointments$.pipe(
-    map(appointments => {
-      const filteredAppointments: IAppointmentModel[] = [];
-      appointments.forEach(appointment => {
-        if (appointment.doctorName === doctorName) {
-          filteredAppointments.push(appointment);
-        }
-      });
-      return filteredAppointments;
-    })
-  );
+  getAppointmentsByDoctorName(doctorName: string): Observable<IAppointmentModel[]> {
+    return this.appointments$.pipe(
+      map(appointments => {
+        const filteredAppointments: IAppointmentModel[] = [];
+        appointments.forEach(appointment => {
+          if (appointment.doctorName === doctorName) {
+            filteredAppointments.push(appointment);
+          }
+        });
+        return filteredAppointments;
+      })
+    );
   }
 
 
-  private updateLocalStorage(appointments: IAppointmentModel[]): void {
+
+   updateLocalStorage(appointments: IAppointmentModel[]): void {
     localStorage.setItem('appointments', JSON.stringify(appointments));
   }
 
 
+  //un post la add-appointment
   createAppointment(appointment: IAppointmentModel): void {
     const currentAppointments = this.appointmentsSubject.value;
     const updatedAppointments = [...currentAppointments, appointment];
@@ -51,6 +54,8 @@ export class AppointmentService {
     this.updateLocalStorage(updatedAppointments);
   }
 
+
+  //pt modificarea unui appointment
   updateAppointment(updatedAppointment: IAppointmentModel): void {
     const currentAppointments = this.appointmentsSubject.value;
     const index = currentAppointments.findIndex(appointment => appointment.id === updatedAppointment.id);

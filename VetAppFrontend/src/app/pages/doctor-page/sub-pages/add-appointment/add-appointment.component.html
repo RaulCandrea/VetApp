@@ -1,71 +1,71 @@
-<div class = "container-all">
-<form *ngIf="appointmentForm" [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+<div class="container-all">
+  <form *ngIf="appointmentForm" [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
 
-  <div formGroupName="animal">
+    <div formGroupName="animal">
 
-    <mat-form-field class="example-full-width">
-      <mat-label>Animal's name</mat-label>
-      <input  formControlName="name" matInput placeholder="Animal's name" value="Animal's name">
+      <mat-form-field class="example-full-width">
+        <mat-label>Animal's name</mat-label>
+        <input formControlName="name" matInput placeholder="Animal's name" value="Animal's name">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Select Animal</mat-label>
+        <mat-select formControlName="species" placeholder="Choose an animal">
+          <mat-option *ngFor="let animal of animals" [value]="animal">
+            {{ animal }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Select Doctor</mat-label>
+      <mat-select formControlName="doctorName" placeholder="Choose a doctor">
+        <mat-option *ngFor="let doctor of doctors" [value]="doctor">
+          {{ doctor }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Select Animal</mat-label>
-    <mat-select formControlName="species" placeholder="Choose an animal">
-      <mat-option *ngFor="let animal of animals" [value]="animal">
-        {{ animal }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
 
-  </div>
-  <mat-form-field appearance="fill">
-    <mat-label>Select Doctor</mat-label>
-    <mat-select formControlName="doctorName" placeholder="Choose a doctor">
-      <mat-option *ngFor="let doctor of doctors" [value]="doctor">
-        {{ doctor }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Appointment Time</mat-label>
+      <input
+        type="text"
+        matInput
+        [ngxMatTimepicker]="timepicker"
+        [format]="24"
+        readonly
+        formControlName="time"
+      />
+      <mat-icon
+        matPrefix
+        *ngIf="appointmentForm.get('time')?.value"
+        (click)="onClear($event)"
+      >
+        close
+      </mat-icon>
+      <mat-icon
+        matSuffix
+        (click)="openFromIcon(timepicker)"
+      >
+        schedule
+      </mat-icon>
+    </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="picker" formControlName="date">
-    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Appointment Time</mat-label>
-    <input
-      type="text"
-      matInput
-      [ngxMatTimepicker]="timepicker"
-      [format]="24"
-      readonly
-      formControlName="time"
-    />
-    <mat-icon
-      matPrefix
-      *ngIf="appointmentForm.get('time')?.value"
-      (click)="onClear($event)"
-    >
-      close
-    </mat-icon>
-    <mat-icon
-      matSuffix
-      (click)="openFromIcon(timepicker)"
-    >
-      schedule
-    </mat-icon>
-  </mat-form-field>
-
-  <ngx-mat-timepicker class = "time-picker"
-    #timepicker
-    [enableKeyboardInput]="true"
-  ></ngx-mat-timepicker>
+    <ngx-mat-timepicker class="time-picker"
+                        #timepicker
+                        [enableKeyboardInput]="true"
+    ></ngx-mat-timepicker>
 
 
-  <button mat-raised-button color="primary" type="submit">Submit</button>
-</form>
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+  </form>
 
 </div>

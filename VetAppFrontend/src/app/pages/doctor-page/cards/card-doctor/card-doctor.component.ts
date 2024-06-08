@@ -32,7 +32,7 @@ import {IDoctorModel} from "../../../../models/IDoctorModel";
 })
 export class CardDoctorComponent {
   @Input() doctor !: IDoctorModel;
-  @Input() image : string = '';
+  @Input() image: string = '';
 
 
 }

@@ -8,7 +8,8 @@ import {DOCTORS} from "../mock-data/doctor.data";
 
 export class DoctorService {
 
-  getDoctors(){
+  //am facut o metoda sa fie mai clean sa nu iau direct din doctor.data
+  getDoctors() {
     return DOCTORS;
   }
 }

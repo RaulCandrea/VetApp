@@ -1,23 +1,20 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {DoctorService} from "../../../../services/doctor.services";
-import {IDoctorModel} from "../../../../models/IDoctorModel";
 import {MatFormField, MatHint, MatLabel, MatSuffix} from "@angular/material/form-field";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {NgForOf, NgIf} from "@angular/common";
 import {domesticAnimals} from "../../../../mock-data/animals.data";
 import {MatInput} from "@angular/material/input";
 import {MatAutocomplete, MatAutocompleteTrigger} from "@angular/material/autocomplete";
-import {map, Observable, startWith} from "rxjs";
+import { Observable} from "rxjs";
 import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from "@angular/material/datepicker";
 import {MatButton} from "@angular/material/button";
 import {MatNativeDateModule} from "@angular/material/core";
 import {NgxMatTimepickerModule} from "ngx-mat-timepicker";
 import {MatIcon} from "@angular/material/icon";
-import { DateTime } from 'ts-luxon';
 import {AppointmentService} from "../../../../services/appointment.services";
 import {IAppointmentModel, StatusEnum} from "../../../../models/IAppointmentModel";
-
 
 
 @Component({
@@ -49,23 +46,25 @@ import {IAppointmentModel, StatusEnum} from "../../../../models/IAppointmentMode
   templateUrl: './add-appointment.component.html',
   styleUrl: './add-appointment.component.css'
 })
-export class AddAppointmentComponent implements OnInit{
+export class AddAppointmentComponent implements OnInit {
 
   @ViewChild('timepicker') timepicker: any;
 
 
-  appointmentForm !: FormGroup ;
-  animals:string[] = [];
-  doctors: string[] =[];
   appointments$: Observable<IAppointmentModel[]>;
+  appointmentForm !: FormGroup;
+  animals: string[] = [];
+  doctors: string[] = [];
+
   private idCounter: number = 5;
 
 
-  constructor(private fb: FormBuilder, private appointmentService: AppointmentService,private doctorService : DoctorService) {
+  constructor(private fb: FormBuilder, private appointmentService: AppointmentService, private doctorService: DoctorService) {
     this.appointments$ = this.appointmentService.appointments$;
   }
 
   ngOnInit(): void {
+    //get animal + doctors si formam form grup-ul
     this.getAnimals();
     this.getDoctors();
     this.appointmentForm = this.fb.group({
@@ -85,26 +84,27 @@ export class AddAppointmentComponent implements OnInit{
   }
 
   onSubmit(): void {
-    console.log(this.appointmentForm.value);
 
     if (this.appointmentForm.valid) {
-      console.log(this.appointmentForm.value);
       const appointment: IAppointmentModel = this.appointmentForm.value;
       this.appointmentService.createAppointment(appointment);
-      console.log('Appointment submitted successfully', appointment);
-      this.appointmentForm.reset(); // Reset the form after successful submission
+      this.appointmentForm.reset();
     }
   }
 
+
+  //metoda pt time
   onClear(event: Event): void {
     event.stopPropagation();
     this.appointmentForm.get('time')?.reset();
   }
 
+  //la fel
   openFromIcon(timepicker: any): void {
     timepicker.open();
   }
 
+  //metoda sa generez un id nu mi-am batut capul cu id random am incrementat doar
   generateId(): string {
     return (this.idCounter + 1).toString();
   }
@@ -116,7 +116,7 @@ export class AddAppointmentComponent implements OnInit{
 
   getDoctors(): void {
     let temp = this.doctorService.getDoctors()
-    temp.forEach(doct =>{
+    temp.forEach(doct => {
       this.doctors.push(doct.name);
     })
   }

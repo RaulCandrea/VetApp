@@ -31,25 +31,24 @@ import {doctor1} from "../../../../mock-data/doctor.data";
   styleUrl: './my-appointments.component.css'
 })
 export class MyAppointmentsComponent implements OnInit {
-  doctor:IDoctorModel = doctor1;
+  doctor: IDoctorModel = doctor1;
   progress: IAppointmentModel[] = [];
   todo: IAppointmentModel[] = [];
   done: IAppointmentModel[] = [];
 
-  constructor(private appointmentService: AppointmentService, private router: Router) { }
+  constructor(private appointmentService: AppointmentService, private router: Router) {
+  }
 
   ngOnInit() {
     this.appointmentService.getAppointmentsByDoctorName(doctor1.name).subscribe(tempArray => {
-      if(tempArray) {
+      if (tempArray) {
         this.sortAppointmentsIntoArrays(tempArray);
       }
     });
   }
 
-  public redirectTo(id: string) {
-    this.router.navigate(['my-appointments/details/' + id]);
-  }
 
+  //aici este metoda de drop unde am si verificat daca este in done sa nu se mai poata muta
   drop(event: CdkDragDrop<IAppointmentModel[]>, targetStatus: StatusEnum) {
     if (event.previousContainer.id === 'cdk-drop-list-0' && targetStatus === StatusEnum.done) {
       alert('You must move the item to "In Progress" before marking it as "Done".');
@@ -71,10 +70,11 @@ export class MyAppointmentsComponent implements OnInit {
     }
   }
 
+  //aici inserez elementele in array-uri diferite
   sortAppointmentsIntoArrays(tempArray: IAppointmentModel[]) {
-      this.todo = tempArray.filter(appointment => appointment.status === StatusEnum.created);
-      this.progress = tempArray.filter(appointment => appointment.status === StatusEnum.progress);
-      this.done = tempArray.filter(appointment => appointment.status === StatusEnum.done);
+    this.todo = tempArray.filter(appointment => appointment.status === StatusEnum.created);
+    this.progress = tempArray.filter(appointment => appointment.status === StatusEnum.progress);
+    this.done = tempArray.filter(appointment => appointment.status === StatusEnum.done);
   }
 
   protected readonly StatusEnum = StatusEnum;

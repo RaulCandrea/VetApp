@@ -50,7 +50,7 @@ import {AppointmentService} from "../../../../services/appointment.services";
   templateUrl: './all-appointments.component.html',
   styleUrl: './all-appointments.component.css'
 })
-export class AllAppointmentsComponent implements OnInit{
+export class AllAppointmentsComponent implements OnInit {
   displayedColumns: string[] = [
     'animal-name',
     'animal-species',
@@ -65,12 +65,12 @@ export class AllAppointmentsComponent implements OnInit{
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private router : Router,private appointmentService : AppointmentService) {
+  constructor(private router: Router, private appointmentService: AppointmentService) {
     this.appointments$ = this.appointmentService.appointments$;
   }
 
   ngOnInit() {
-    this.appointments$.subscribe(data =>{
+    this.appointments$.subscribe(data => {
       this.dataSource.data = data;
     })
     this.dataSource.sort = this.sort;
@@ -86,7 +86,7 @@ export class AllAppointmentsComponent implements OnInit{
   }
 
 
-
+  //filtru dupa toate coloanele
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
     this.dataSource.filter = filterValue;
@@ -113,5 +113,5 @@ export class AllAppointmentsComponent implements OnInit{
   }
 
 
-    protected readonly StatusEnum = StatusEnum;
+  protected readonly StatusEnum = StatusEnum;
 }

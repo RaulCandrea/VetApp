@@ -17,7 +17,7 @@
   width: 90px;
   object-fit: cover;
   border-radius: 10px;
-  margin:10px;
+  margin: 10px;
 }
 
 .card-details {
@@ -35,21 +35,21 @@
 
 mat-card-title {
   margin-top: 10px;
-  color:black;
-  font-size:12px;
+  color: black;
+  font-size: 12px;
 }
 
 mat-card-actions {
-  color:hotpink;
+  color: hotpink;
 }
 
-mat-card-actions{
-  margin-bottom: 10px!important;
+mat-card-actions {
+  margin-bottom: 10px !important;
 }
 
-button{
-  height:30px;
-  background:hotpink;
+button {
+  height: 30px;
+  background: hotpink;
   border-radius: 10px;
-  margin-bottom:5px;
+  margin-bottom: 5px;
 }

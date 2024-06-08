@@ -1,7 +1,8 @@
-.container-all{
+.container-all {
   overflow: hidden;
 
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -21,15 +22,16 @@ button {
   margin-top: 20px;
 }
 
-.time-picker{
+.time-picker {
   background-color: black;
 }
+
 mat-form-field {
-  color:white;
-  padding:0;
+  color: white;
+  padding: 0;
 }
 
-mat-label{
+mat-label {
   color: gray;
 }
 
@@ -38,7 +40,7 @@ ngx-mat-timepicker {
   color: black !important;
 }
 
- ngx-mat-timepicker-button {
+ngx-mat-timepicker-button {
   color: white !important;
 }
 
@@ -47,4 +49,20 @@ ngx-mat-timepicker-minutes,
 ngx-mat-timepicker-seconds {
   background-color: black !important;
   color: white !important;
+}
+
+
+@media(max-width: 1024px) {
+
+  .drop-group {
+    overflow: scroll;
+  }
+}
+
+@media (max-width: 768px) {
+
+    .drop-group {
+      overflow: scroll;
+    }
+
 }

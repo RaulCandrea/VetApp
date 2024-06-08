@@ -25,12 +25,8 @@ export class CardAppointmentComponent {
   @Input() appointment !: IAppointmentModel;
   protected readonly StatusEnum = StatusEnum;
 
-  constructor(private router : Router) {
+  constructor() {
   }
 
 
-  public redirectTo(id: string){
-    console.log(id);
-    this.router.navigate( ['/details/:' + id]);
-  }
 }

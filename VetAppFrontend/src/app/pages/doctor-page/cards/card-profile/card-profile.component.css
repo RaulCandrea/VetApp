@@ -1,19 +1,19 @@
 .card-container {
   height: 120px;
   width: 100%;
-  margin:0 auto;
+  margin: 0 auto;
   display: flex;
   background-color: white;
 }
 
-mat-card-header{
+mat-card-header {
   color: black;
   font-weight: bold;
 }
 
 img {
-  object-fit:cover;
-  object-position:50% 50%;
+  object-fit: cover;
+  object-position: 50% 50%;
   border-radius: 50%;
   height: 100px;
   width: 100px;
@@ -23,11 +23,12 @@ mat-card-content {
   display: flex;
   flex-direction: row;
 }
+
 .card-actions {
-  margin-left: 50% ;
+  margin-left: 50%;
 }
 
-.profile-button{
+.profile-button {
   height: 50px;
   justify-content: center;
   margin-left: 10px;
@@ -43,12 +44,13 @@ mat-card-title {
   color: black;
 }
 
-mat-card-subtitle{
-  color:gray;
-  font-size:12px;
+mat-card-subtitle {
+  color: gray;
+  font-size: 12px;
   display: flex;
 }
-p{
+
+p {
   margin-left: 30px;
 }
 
@@ -56,12 +58,13 @@ p{
   justify-content: center;
   color: gray;
 }
- .profile-button {
+
+.profile-button {
   border: 1px solid gray;
   color: gray;
-   width: 200px;
-   height: 50px;
-   border-radius: 10px;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
 }
 
 .dots-button {
@@ -72,32 +75,34 @@ p{
   border: 1px solid gray;
 }
 
-@media(max-width:1440px){
+@media (max-width: 1440px) {
   .card-actions {
-    margin:0 auto;
+    margin: 0 auto;
   }
 }
 
-@media(max-width:765px) {
+@media (max-width: 765px) {
   img {
     border-radius: 50%;
     height: 30px;
     width: 30px;
   }
+
   mat-card-title {
     font-size: 10px;
     color: black;
   }
 
-  mat-card-subtitle{
-    display:none;
+  mat-card-subtitle {
+    display: none;
   }
-  mat-card-title{
-    font-size:8px;
+
+  mat-card-title {
+    font-size: 8px;
   }
 
 
-  .profile-button{
+  .profile-button {
     height: 20px;
     width: 20px;
     font-size: 6px;
@@ -114,26 +119,29 @@ p{
   }
 
 }
-@media(max-width:425px){
+
+@media (max-width: 425px) {
   img {
     border-radius: 50%;
     height: 25px;
     width: 25px;
   }
+
   mat-card-title {
     font-size: 8px;
     color: black;
   }
 
-  mat-card-subtitle{
-    display:none;
+  mat-card-subtitle {
+    display: none;
   }
-  mat-card-title{
-    font-size:6px;
+
+  mat-card-title {
+    font-size: 6px;
   }
 
 
-  .profile-button{
+  .profile-button {
     height: 15px;
     justify-content: center;
     margin-left: 10px;
@@ -147,27 +155,30 @@ p{
 
   }
 }
-@media(max-width:375px) {
+
+@media (max-width: 375px) {
   img {
     border-radius: 50%;
     height: 15px;
     width: 15px;
   }
+
   mat-card-title {
     font-size: 6px;
     color: black;
   }
 
-  mat-card-subtitle{
+  mat-card-subtitle {
     font-size: 6px;
 
   }
-  mat-card-title{
-    font-size:4px;
+
+  mat-card-title {
+    font-size: 4px;
   }
 
 
-  .profile-button{
+  .profile-button {
     height: 10px;
     width: 20px;
     justify-content: center;
@@ -183,32 +194,34 @@ p{
   }
 }
 
-@media(max-width:230px) {
+@media (max-width: 230px) {
   img {
     border-radius: 50%;
     height: 10px;
     width: 10px;
   }
+
   mat-card-title {
     font-size: 6px;
     color: black;
   }
 
-  mat-card-subtitle{
+  mat-card-subtitle {
     font-size: 6px;
-    color:red;
+    color: red;
 
   }
-  mat-card-title{
-    font-size:4px;
+
+  mat-card-title {
+    font-size: 4px;
   }
 
-  mat-card-actions{
+  mat-card-actions {
     margin-left: 0;
   }
 
 
-  .profile-button{
+  .profile-button {
     height: 10px;
     width: 15px;
     justify-content: center;
@@ -226,31 +239,32 @@ p{
 }
 
 
-
-@media(max-height: 450px) {
+@media (max-height: 450px) {
   .card-container {
     height: 80px;
     width: 100%;
     display: flex;
     background-color: white;
   }
+
   img {
     border-radius: 50%;
     height: 50px;
     width: 50px;
   }
+
   mat-card-title {
     color: black;
   }
 
-  mat-card-subtitle{
-    color:gray;
-    font-size:8px;
+  mat-card-subtitle {
+    color: gray;
+    font-size: 8px;
     display: flex;
   }
 
 
-  .profile-button{
+  .profile-button {
     height: 25px;
     justify-content: center;
     margin-left: 10px;

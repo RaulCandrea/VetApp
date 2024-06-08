@@ -1,12 +1,12 @@
 import {Component, Input} from '@angular/core';
 import {MatButton} from "@angular/material/button";
 import {
-    MatCard,
-    MatCardActions,
-    MatCardContent,
-    MatCardHeader,
-    MatCardSubtitle,
-    MatCardTitle
+  MatCard,
+  MatCardActions,
+  MatCardContent,
+  MatCardHeader,
+  MatCardSubtitle,
+  MatCardTitle
 } from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
 import {MatIcon} from "@angular/material/icon";
@@ -29,7 +29,7 @@ import {MatIcon} from "@angular/material/icon";
   styleUrl: './card-events.component.css'
 })
 export class CardEventsComponent {
-  @Input() imagePath : string= '';
-  @Input() title : string = '';
+  @Input() imagePath: string = '';
+  @Input() title: string = '';
 
 }
