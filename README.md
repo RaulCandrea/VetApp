@@ -60,9 +60,9 @@ Aici se poate adauga o programare in care selectam un animal,un doctor,data + ti
 
 
 
-#### Lucruri care necesita imbunatatite in opinia mea
+#### Lucruri care necesita imbunatatiri, in opinia mea:
 
-Nu e foarte responsive. N-am mai facut pana acum vre-un site responsive.Totusi s-a incercat.
+Nu e foarte responsive. N-am mai facut pana acum vre-un site responsive.Totusi s-a incercat (cel mai mic ecran pe care s-ar vedea ok ar fi tableta).
 
 Se mai poate lucra la design nu e chiar 1 la 1 cu screenshot-ul.
 
