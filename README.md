@@ -1,4 +1,8 @@
 
+# VetApp
+
+O aplicatie frontend Angular prin care se face managementul programarilor la un cabinet veterinar,cu atentie deosbita pentrut usability si aspect.
+
 ## ASPECTE GENERALE
 
 ### Models
