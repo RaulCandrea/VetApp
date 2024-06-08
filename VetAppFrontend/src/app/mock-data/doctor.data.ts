@@ -6,7 +6,7 @@ export const doctor1: IDoctorModel = {
   name: 'Dr. John Smith',
   rate: 4.5,
   speciality: 'Cardiology',
-  tasksToday: 8,
+  tasksToday: 4,
 };
 
 export const doctor2: IDoctorModel = {
