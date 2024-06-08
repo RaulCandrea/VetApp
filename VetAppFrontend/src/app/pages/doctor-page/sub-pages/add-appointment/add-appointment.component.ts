@@ -58,7 +58,7 @@ export class AddAppointmentComponent implements OnInit{
   animals:string[] = [];
   doctors: string[] =[];
   appointments$: Observable<IAppointmentModel[]>;
-  private idCounter: number = 3;
+  private idCounter: number = 5;
 
 
   constructor(private fb: FormBuilder, private appointmentService: AppointmentService,private doctorService : DoctorService) {

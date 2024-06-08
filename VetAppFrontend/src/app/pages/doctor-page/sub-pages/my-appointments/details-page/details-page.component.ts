@@ -58,8 +58,12 @@ import appointments from "../../../../../mock-data/appointments.data";
 export class DetailsPageComponent implements OnInit {
   appointmentId : string | null  = '' ;
   appointment : IAppointmentModel | undefined = undefined;
+  appointmentForm: FormGroup | undefined;
+  animalForm : FormGroup | undefined;
+  appointments = mockAppointments;
 
   constructor(private fb: FormBuilder,private appointmentService: AppointmentService, private router : ActivatedRoute) {
+
   }
 
   ngOnInit() {
@@ -74,11 +78,6 @@ export class DetailsPageComponent implements OnInit {
     this.createForms();
 
   }
-
-  appointmentForm: FormGroup | undefined;
-  animalForm : FormGroup | undefined;
-  statusEnum = StatusEnum;
-  appointments = mockAppointments;
 
 
   createForms(): void {
@@ -109,6 +108,9 @@ export class DetailsPageComponent implements OnInit {
     }
   }
 
+
+
+
   onSubmit(): void {
     if(this.appointmentForm)
     if (this.appointmentForm.valid) {
@@ -121,4 +123,5 @@ export class DetailsPageComponent implements OnInit {
 
 
   protected readonly StatusEnum = StatusEnum;
+  protected readonly Number = Number;
 }

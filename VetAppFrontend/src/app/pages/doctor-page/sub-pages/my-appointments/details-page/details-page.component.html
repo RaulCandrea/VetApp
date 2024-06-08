@@ -53,7 +53,7 @@
           <mat-form-field appearance="fill">
             <mat-label>Status</mat-label>
             <mat-select formControlName="status">
-              <mat-option *ngFor="let status of statusEnum| keyvalue" [value]="status.value">
+              <mat-option  *ngFor="let status of StatusEnum| keyvalue" [value]="status.value ">
                 {{status.key}}
               </mat-option>
             </mat-select>
@@ -68,7 +68,7 @@
           <mat-list>
             <mat-list-item *ngFor="let appointment of appointments">
               <h3 matLine>Doctor's name: {{ appointment.doctorName }}</h3>
-              <p matLine>Status: {{ appointment.diagnosis }}</p>
+              <p matLine>Status: {{ StatusEnum[appointment.status] }}</p>
             </mat-list-item>
           </mat-list>
         </mat-card-content>

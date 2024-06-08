@@ -3,7 +3,7 @@
   <div class="card-content-wrapper">
     <div class="card-details">
       <mat-card-header class="card-header">
-        <mat-card-title>Find and Join in Special Events for Pets!</mat-card-title>
+        <mat-card-title>{{title}}</mat-card-title>
       </mat-card-header>
       <mat-card-content class="card-content">
         <mat-card-actions>
@@ -11,6 +11,6 @@
         </mat-card-actions>
       </mat-card-content>
     </div>
-    <img class="card-image" ngSrc="assets/icons/doctor3.jpg" alt="Doctor" height="100" width="100">
+    <img class="card-image" ngSrc="{{imagePath}}" alt="Doctor" height="100" width="100">
   </div>
 </mat-card>

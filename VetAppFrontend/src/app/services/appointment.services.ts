@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import mockAppointments from "../mock-data/appointments.data";
 import {IAppointmentModel, StatusEnum} from "../models/IAppointmentModel";
-import {BehaviorSubject, map, Observable} from "rxjs";
+import {BehaviorSubject, filter, map, Observable} from "rxjs";
 
 
 @Injectable({
@@ -12,14 +12,6 @@ export class AppointmentService {
 
 
 
-  getAppointmentById(id: string): Observable<IAppointmentModel | undefined> {
-    return this.appointments$.pipe(
-      map(appointments => appointments.find(appointment => appointment.id === id))
-    );
-  }
-
-
-
   private appointmentsSubject = new BehaviorSubject<IAppointmentModel[]>([]);
   appointments$ = this.appointmentsSubject.asObservable();
 
@@ -27,6 +19,25 @@ export class AppointmentService {
     const mockAppointmentsTemp: IAppointmentModel[] = mockAppointments;
     this.appointmentsSubject.next(mockAppointmentsTemp);
   }
+  getAppointmentById(id: string): Observable<IAppointmentModel | undefined> {
+    return this.appointments$.pipe(
+      map(appointments => appointments.find(appointment => appointment.id === id))
+    );
+  }
+
+  getAppointmentsByDoctorName(doctorName: string): Observable<IAppointmentModel[]> { return this.appointments$.pipe(
+    map(appointments => {
+      const filteredAppointments: IAppointmentModel[] = [];
+      appointments.forEach(appointment => {
+        if (appointment.doctorName === doctorName) {
+          filteredAppointments.push(appointment);
+        }
+      });
+      return filteredAppointments;
+    })
+  );
+  }
+
 
   private updateLocalStorage(appointments: IAppointmentModel[]): void {
     localStorage.setItem('appointments', JSON.stringify(appointments));

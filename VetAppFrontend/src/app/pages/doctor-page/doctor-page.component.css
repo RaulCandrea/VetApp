@@ -1,0 +1,168 @@
+.sidenav-container {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  background: whitesmoke;
+  display: flex;
+  flex-direction: row;
+}
+
+.sidenav {
+  width: 5%;
+  box-sizing: border-box;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0;
+  border: 2px solid lightgray;
+}
+
+.side-nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  border-radius: 0;
+}
+
+.pink-icon {
+  color: deeppink !important;
+  font-size: 24px;
+  border-top: 1px grey solid;
+  border-bottom: 1px grey solid;
+}
+
+.unselected-icon {
+  color: gray !important;
+}
+
+.mat-sidenav-content {
+  width: 95%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: whitesmoke;
+  font-weight: bold;
+}
+
+.profile-card {
+  width: 100%;
+  background-color: white;
+  margin-bottom: 20px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.menu-bar {
+  width: 70%;
+  font-weight: normal !important;
+}
+
+.right-content {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  padding: 10px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  color: black;
+  margin: 10px;
+  padding: 10px;
+}
+
+.mat-mdc-tab {
+  -webkit-tap-highlight-color: black !important;
+}
+
+.mat-mdc-tab-group {
+  --mat-tab-header-inactive-focus-label-text-color: black;
+  --mat-tab-header-inactive-hover-label-text-color: black;
+  --mat-tab-header-disabled-ripple-color: black;
+  --mat-tab-header-pagination-icon-color: black;
+  --mat-tab-header-inactive-label-text-color: gray;
+}
+
+.mat-mdc-tab .mdc-tab__text-label {
+  color: black;
+}
+
+/* Adjustments for larger screens */
+@media (max-width: 1200px) {
+  .right-content{
+    display: none;
+  }
+  .sidenav {
+    width: 5%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .side-nav-button {
+    padding: 12px;
+  }
+
+  .mat-sidenav-content {
+    width: 100%;
+  }
+
+  .menu-bar {
+    width: 100%;
+  }
+
+
+}
+
+@media (max-width: 600px) {
+  .sidenav {
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+  }
+
+  .side-nav-button {
+    padding: 0;
+  }
+
+  .mat-sidenav-content {
+    width: calc(100% - 100px);
+  }
+
+  .menu-bar {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .tabs {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .right-content {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

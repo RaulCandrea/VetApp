@@ -1,9 +1,9 @@
 <mat-card class = "card-container">
   <mat-card-content>
-    <img ngSrc="assets/icons/doctor3.jpg" priority alt="Avatar" height="1365" width="2048">
+    <img ngSrc="../../../../../assets/icons/doctor4.jpg" priority alt="Avatar" height="100" width="100">
     <mat-card-header>
-      <mat-card-title>June Sarvis</mat-card-title>
-      <mat-card-subtitle>7 tasks today veterinarian medicine dotoris</mat-card-subtitle>
+      <mat-card-title>{{doctor.name}}</mat-card-title>
+      <mat-card-subtitle>{{doctor.tasksToday}} TASKS TODAY <p>{{doctor.speciality.toUpperCase()}}</p></mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions class="card-actions">
       <button class = "dots-button" mat-button><mat-icon>more_horiz</mat-icon></button>

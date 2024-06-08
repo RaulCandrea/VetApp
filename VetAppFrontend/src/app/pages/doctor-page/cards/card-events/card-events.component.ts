@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {MatButton} from "@angular/material/button";
 import {
     MatCard,
@@ -29,5 +29,7 @@ import {MatIcon} from "@angular/material/icon";
   styleUrl: './card-events.component.css'
 })
 export class CardEventsComponent {
+  @Input() imagePath : string= '';
+  @Input() title : string = '';
 
 }

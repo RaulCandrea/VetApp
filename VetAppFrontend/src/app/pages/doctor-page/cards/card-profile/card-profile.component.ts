@@ -10,6 +10,8 @@ import {
     MatCardTitle
 } from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
+import {IDoctorModel} from "../../../../models/IDoctorModel";
+import {doctor1} from "../../../../mock-data/doctor.data";
 
 @Component({
   selector: 'app-card-profile',
@@ -29,5 +31,8 @@ import {NgOptimizedImage} from "@angular/common";
   styleUrl: './card-profile.component.css'
 })
 export class CardProfileComponent {
+
+  doctor : IDoctorModel = doctor1;
+
 
 }

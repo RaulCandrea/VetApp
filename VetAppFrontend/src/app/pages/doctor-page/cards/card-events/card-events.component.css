@@ -43,6 +43,10 @@ mat-card-actions {
   color:hotpink;
 }
 
+mat-card-actions{
+  margin-bottom: 10px!important;
+}
+
 button{
   height:30px;
   background:hotpink;

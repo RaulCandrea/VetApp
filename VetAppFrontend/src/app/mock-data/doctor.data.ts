@@ -1,7 +1,7 @@
 import {IDoctorModel} from "../models/IDoctorModel";
 
 
-const doctor1: IDoctorModel = {
+export const doctor1: IDoctorModel = {
   id: 'd1',
   name: 'Dr. John Smith',
   rate: 4.5,
@@ -9,7 +9,7 @@ const doctor1: IDoctorModel = {
   tasksToday: 8,
 };
 
-const doctor2: IDoctorModel = {
+export const doctor2: IDoctorModel = {
   id: 'd2',
   name: 'Dr. Emily Johnson',
   rate: 4.8,
@@ -17,7 +17,7 @@ const doctor2: IDoctorModel = {
   tasksToday: 5,
 };
 
-const doctor3: IDoctorModel = {
+export const doctor3: IDoctorModel = {
   id: 'd3',
   name: 'Dr. Michael Brown',
   rate: 4.3,

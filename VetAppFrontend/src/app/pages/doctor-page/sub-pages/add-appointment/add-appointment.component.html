@@ -1,9 +1,10 @@
+<div class = "container-all">
 <form *ngIf="appointmentForm" [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
 
   <div formGroupName="animal">
 
     <mat-form-field class="example-full-width">
-      <mat-label>Favorite food</mat-label>
+      <mat-label>Animal's name</mat-label>
       <input  formControlName="name" matInput placeholder="Animal's name" value="Animal's name">
     </mat-form-field>
 
@@ -66,3 +67,5 @@
 
   <button mat-raised-button color="primary" type="submit">Submit</button>
 </form>
+
+</div>

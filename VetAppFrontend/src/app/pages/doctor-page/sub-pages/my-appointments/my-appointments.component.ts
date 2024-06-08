@@ -8,11 +8,13 @@ import {
   transferArrayItem
 } from "@angular/cdk/drag-drop";
 import {NgForOf} from "@angular/common";
-import {CardAppointmentComponent} from "../../card-appointment/card-appointment.component";
+import {CardAppointmentComponent} from "../../cards/card-appointment/card-appointment.component";
 import {AppointmentService} from "../../../../services/appointment.services";
 import {IAppointmentModel, StatusEnum} from "../../../../models/IAppointmentModel";
 import {Router} from "@angular/router";
 import {Observable} from "rxjs";
+import {IDoctorModel} from "../../../../models/IDoctorModel";
+import {doctor1} from "../../../../mock-data/doctor.data";
 
 
 @Component({
@@ -29,6 +31,7 @@ import {Observable} from "rxjs";
   styleUrl: './my-appointments.component.css'
 })
 export class MyAppointmentsComponent implements OnInit {
+  doctor:IDoctorModel = doctor1;
   progress: IAppointmentModel[] = [];
   todo: IAppointmentModel[] = [];
   done: IAppointmentModel[] = [];
@@ -36,7 +39,11 @@ export class MyAppointmentsComponent implements OnInit {
   constructor(private appointmentService: AppointmentService, private router: Router) { }
 
   ngOnInit() {
-    this.sortAppointmentsIntoArrays();
+    this.appointmentService.getAppointmentsByDoctorName(doctor1.name).subscribe(tempArray => {
+      if(tempArray) {
+        this.sortAppointmentsIntoArrays(tempArray);
+      }
+    });
   }
 
   public redirectTo(id: string) {
@@ -64,12 +71,10 @@ export class MyAppointmentsComponent implements OnInit {
     }
   }
 
-  sortAppointmentsIntoArrays() {
-    this.appointmentService.appointments$.subscribe(tempArray => {
+  sortAppointmentsIntoArrays(tempArray: IAppointmentModel[]) {
       this.todo = tempArray.filter(appointment => appointment.status === StatusEnum.created);
       this.progress = tempArray.filter(appointment => appointment.status === StatusEnum.progress);
       this.done = tempArray.filter(appointment => appointment.status === StatusEnum.done);
-    });
   }
 
   protected readonly StatusEnum = StatusEnum;

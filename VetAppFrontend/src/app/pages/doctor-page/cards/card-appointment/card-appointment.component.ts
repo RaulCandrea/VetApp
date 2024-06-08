@@ -1,10 +1,10 @@
 import {Component, Input} from '@angular/core';
-import {IAppointmentModel, StatusEnum} from "../../../models/IAppointmentModel";
+import {IAppointmentModel, StatusEnum} from "../../../../models/IAppointmentModel";
 import {DatePipe, NgClass} from "@angular/common";
 import {MatIcon} from "@angular/material/icon";
 import {MatButton} from "@angular/material/button";
 import {MatCard} from "@angular/material/card";
-import {IAnimalModel} from "../../../models/IAnimalModel";
+import {IAnimalModel} from "../../../../models/IAnimalModel";
 import {Router, RouterLink} from "@angular/router";
 
 @Component({

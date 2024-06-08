@@ -1,1 +1,51 @@
-<app-side-nav></app-side-nav>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav" mode="side" opened="true">
+    <a class="side-nav-button" mat-button (click)="toggleIconColor('explore')" [ngClass]="{'unselected-icon': activeIcon !== 'explore','pink-icon': activeIcon === 'explore'}">
+      <mat-icon>explore</mat-icon>
+    </a>
+    <a class="side-nav-button" mat-button (click)="toggleIconColor('home')" [ngClass]="{'unselected-icon': activeIcon !== 'home','pink-icon': activeIcon === 'home'}">
+      <mat-icon>home</mat-icon>
+    </a>
+    <a class="side-nav-button" mat-button (click)="toggleIconColor('chat')" [ngClass]="{'unselected-icon': activeIcon !== 'chat','pink-icon': activeIcon === 'chat'}">
+      <mat-icon>chat</mat-icon>
+    </a>
+    <a class="side-nav-button" mat-button (click)="toggleIconColor('maps')" [ngClass]="{'unselected-icon': activeIcon !== 'maps','pink-icon': activeIcon === 'maps'}">
+      <mat-icon>maps</mat-icon>
+    </a>
+    <a class="side-nav-button" mat-button (click)="toggleIconColor('bar_chart')" [ngClass]="{'unselected-icon': activeIcon !== 'bar_chart','pink-icon': activeIcon === 'bar_chart'}">
+      <mat-icon>bar_chart</mat-icon>
+    </a>
+    <a class="side-nav-button" mat-button (click)="toggleIconColor('credit_card')" [ngClass]="{'unselected-icon': activeIcon !== 'credit_card','pink-icon': activeIcon === 'credit_card'}">
+      <mat-icon>credit_card</mat-icon>
+    </a>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-card-profile class="profile-card"></app-card-profile>
+    <div class="main-content">
+      <mat-tab-group class="menu-bar">
+        <mat-tab class="tabs" label="My Appointments" data-route="doctor/all-appointments">
+          <router-outlet></router-outlet>
+        </mat-tab>
+        <mat-tab class="tabs" label="All Appointments" routerLink="doctor/all-appointments">
+          <app-all-appointments></app-all-appointments>
+        </mat-tab>
+        <mat-tab class="tabs" label="Add Appointment">
+          <ng-template matTabContent>
+            <!-- Content for Add Appointment -->
+            <app-add-appointment></app-add-appointment>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+      <div class="right-content">
+        <div class="cards">
+          <app-card-doctor [doctor]=doctor2 image="../../../../../assets/icons/doctor2.jpeg"></app-card-doctor>
+          <app-card-doctor [doctor]=doctor3 image="../../../../../assets/icons/doctor1.jpg"></app-card-doctor>
+          <h1>Event</h1>
+          <app-card-events title="Find and Join in Special Events For Your Pets!" imagePath="../../../../../assets/icons/event-main-arena.jpg"></app-card-events>
+          <h1>Community</h1>
+          <app-card-events title="Connect and share with communities!" imagePath="../../../../../assets/icons/community.jpg"></app-card-events>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

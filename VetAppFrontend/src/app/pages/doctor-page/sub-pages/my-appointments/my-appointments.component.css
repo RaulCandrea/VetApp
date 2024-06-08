@@ -1,6 +1,13 @@
-.drop-group{
-  display: flex;
 
+
+
+.container {
+  overflow: hidden;
+}
+
+
+.drop-group {
+  display: flex;
 }
 
 .example-container {
@@ -9,6 +16,12 @@
   margin: 0 25px 25px 0;
   display: inline-block;
   vertical-align: top;
+
+}
+
+
+.container {
+  overflow: hidden;
 }
 
 .example-list {
@@ -18,8 +31,9 @@
   overflow: auto;
   display: block;
 }
-.container{
-  overflow: hidden;
+
+h2 {
+  color: gray;
 }
 
 .example-box {
@@ -34,8 +48,9 @@
   font-size: 14px;
   overflow: hidden;
 }
-.example-box done{
-cursor: pointer;
+
+.example-box done {
+  cursor: pointer;
 }
 
 .cdk-drag-preview {
@@ -44,6 +59,7 @@ cursor: pointer;
   border-radius: 4px;
 
 }
+
 
 .cdk-drag-placeholder {
   opacity: 2%;

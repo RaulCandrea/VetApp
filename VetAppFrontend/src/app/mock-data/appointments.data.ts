@@ -26,7 +26,7 @@ const mockAppointments: IAppointmentModel[] = [
     id: "2",
     animal: animal,
     date: new Date(),
-    doctorName: "Dr. Johnson",
+    doctorName: "Dr. John Smith",
     diagnosis: "Fractured leg",
     status: StatusEnum.progress
   },
@@ -34,9 +34,25 @@ const mockAppointments: IAppointmentModel[] = [
     id: "3",
     animal: animal,
     date: new Date(),
-    doctorName: "Dr. Brown",
+    doctorName: "Dr. John Smith",
     diagnosis: "Skin allergy",
     status: StatusEnum.done
+  },
+  {
+    id: "4",
+    animal: animal,
+    date: new Date(),
+    doctorName: "Dr. John Smith",
+    diagnosis: "Skin allergy",
+    status: StatusEnum.progress
+  },
+  {
+    id: "5",
+    animal: animal,
+    date: new Date(),
+    doctorName: "Dr. John Smith",
+    diagnosis: "Skin allergy",
+    status: StatusEnum.progress
   }
 
 ];

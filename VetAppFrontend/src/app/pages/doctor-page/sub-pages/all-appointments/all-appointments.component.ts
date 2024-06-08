@@ -113,7 +113,5 @@ export class AllAppointmentsComponent implements OnInit{
   }
 
 
-
-
-
+    protected readonly StatusEnum = StatusEnum;
 }
