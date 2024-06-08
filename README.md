@@ -63,3 +63,5 @@ Nu e foarte responsive. N-am mai facut pana acum vre-un site responsive.Totusi s
 Se mai poate lucra la design nu e chiar 1 la 1 cu screenshot-ul.
 
 La pagina all-appointments nu este implementat ca filtru sa salveze programarile.
+
+Mai trebuie lucrat la routing.
